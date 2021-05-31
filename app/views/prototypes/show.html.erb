@@ -49,7 +49,7 @@
         <% end %>   
         <%# // ログインしているユーザーには上記を表示する %>
         <ul class="comments_lists">
-         <%= @comments.each do |comment| %>
+         <% @comments.each do |comment| %>
           <%# 投稿に紐づくコメントを一覧する処理を記述する %>
             <li class="comments_list">
             <%#複数形なのでeach do で1つずつ表示%>
