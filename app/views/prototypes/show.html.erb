@@ -6,19 +6,15 @@
       </p>
       <%= link_to "by #{@prototype.user.name}", user_path(@prototype.user), class: :prototype__user %>
       <%# プロトタイプの投稿者とログインしているユーザーが同じであれば以下を表示する %>
+      <% if current_user == @prototype.user %>
         <div class="prototype__manage">
-          <% if user_signed_in? && current_user.id == @prototype.user_id %>
-            <li>
-              <%= link_to "編集する", edit_prototype_path(@prototype), class: :prototype__btn %>
-            </li>
-             <li>
+            <%= link_to "編集する", edit_prototype_path(@prototype), class: :prototype__btn %>
             <%= link_to "削除する", prototype_path(@prototype), method: :delete, class: :prototype__btn %>
-             </li>
-          <% end %>
         </div>
+       <% end %>
       <%# // プロトタイプの投稿者とログインしているユーザーが同じであれば上記を表示する %>
       <div class="prototype__image">
-        <%= image_tag @prototype.image, class: 'prototype-image' %>
+        <%= image_tag @prototype.image%>
       </div>
       <div class="prototype__body">
         <div class="prototype__detail">
